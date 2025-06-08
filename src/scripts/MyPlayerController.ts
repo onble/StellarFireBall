@@ -15,6 +15,9 @@ export class MyPlayerController extends Laya.Script {
         this._rig = this.owner.getComponent(Laya.RigidBody);
     }
     public onUpdate(): void {
+        if (this.owner.y > 765) {
+            this._canJump = true;
+        }
         this._rotationShoe();
     }
     //#endregion 生命周期
@@ -47,15 +50,6 @@ export class MyPlayerController extends Laya.Script {
             this._canJump = false;
             const x = this._rig.linearVelocity.x;
             this._rig.setVelocity({ x: x, y: -550 });
-        }
-    }
-    public onTriggerEnter(
-        other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
-        self?: Laya.ColliderBase,
-        contact?: any
-    ): void {
-        if (other.owner.name === "GroundCollider") {
-            this._canJump = true;
         }
     }
     //#endregion 事件监听

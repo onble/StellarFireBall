@@ -220,7 +220,7 @@
             {
               "_$id": "7kyj",
               "_$type": "BoxCollider",
-              "friction": 0.8,
+              "friction": 0.5,
               "density": 100,
               "width": 1920,
               "height": 16
@@ -314,6 +314,10 @@
           "restitution": 0.9,
           "density": 8,
           "radius": 41
+        },
+        {
+          "_$type": "474cd075-e063-4572-ba1d-7242e2bfba1c",
+          "scriptPath": "../src/scripts/Ball.ts"
         }
       ]
     }
