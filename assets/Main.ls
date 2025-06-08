@@ -102,7 +102,6 @@
           "x": -1,
           "y": -17,
           "friction": 0.8,
-          "density": 170,
           "radius": 63
         }
       ],
@@ -111,8 +110,10 @@
           "_$id": "nij8ahoq",
           "_$type": "Image",
           "name": "Head",
+          "x": 62,
           "width": 124,
           "height": 124,
+          "anchorX": 0.5,
           "skin": "res://bcd7364e-6387-4aca-b0c8-2541dac0f092",
           "color": "#ffffff"
         },
@@ -154,7 +155,6 @@
           "x": -1,
           "y": -17,
           "friction": 0.8,
-          "density": 170,
           "radius": 63
         },
         {
@@ -162,6 +162,9 @@
           "scriptPath": "../src/scripts/AIPlayerController.ts",
           "ball": {
             "_$ref": "7m04tfa7"
+          },
+          "shoe": {
+            "_$ref": "el971jwd"
           }
         }
       ],
@@ -309,6 +312,7 @@
           "_$id": "vxec",
           "_$type": "CircleCollider",
           "restitution": 0.8,
+          "density": 8,
           "radius": 41
         }
       ]
