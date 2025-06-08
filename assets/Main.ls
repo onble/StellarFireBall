@@ -132,6 +132,69 @@
       ]
     },
     {
+      "_$id": "n5uqtxle",
+      "_$type": "Sprite",
+      "name": "AIPlayer",
+      "x": 1263,
+      "y": 702,
+      "width": 126,
+      "height": 163,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "_$comp": [
+        {
+          "_$type": "RigidBody",
+          "gravityScale": 3,
+          "allowSleep": false,
+          "allowRotation": false
+        },
+        {
+          "_$id": "h6nr",
+          "_$type": "CircleCollider",
+          "x": -1,
+          "y": -17,
+          "friction": 0.8,
+          "density": 170,
+          "radius": 63
+        },
+        {
+          "_$type": "71396ae3-463f-42d1-a298-d6b3ac6b556d",
+          "scriptPath": "../src/scripts/AIPlayerController.ts",
+          "ball": {
+            "_$ref": "7m04tfa7"
+          }
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "cfcm6lj5",
+          "_$type": "Image",
+          "name": "Head",
+          "x": 62,
+          "width": 124,
+          "height": 124,
+          "anchorX": 0.5,
+          "scaleX": -1,
+          "skin": "res://bcd7364e-6387-4aca-b0c8-2541dac0f092",
+          "color": "#ffffff"
+        },
+        {
+          "_$id": "el971jwd",
+          "_$type": "Image",
+          "name": "Shoe",
+          "x": 69,
+          "y": 129,
+          "width": 114,
+          "height": 68,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "scaleX": -1,
+          "skin": "res://024c9615-166e-49e4-8f00-1fd878cf0d49",
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
       "_$id": "dwultic0",
       "_$type": "Sprite",
       "name": "Border",
