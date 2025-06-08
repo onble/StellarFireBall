@@ -17,18 +17,18 @@ export class AIPlayerController extends Laya.Script {
     private _jumSpeed: number = -500;
     /** 上一帧X的位置 */
     private _lastX: number = 0;
+    private offestX: number = 0;
 
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
     }
     public onUpdate(): void {
-        console.warn(this.owner.y);
         if (this.owner.y > 765) {
             this._canJump = true;
         }
         if (this.ball.x > this.minX && this.ball.x < this.maxX) {
-            this.owner.x = this.ball.x;
+            this.owner.x = this.ball.x + this.offestX;
 
             // 鞋的旋转
             if (this.owner.x > this._lastX) {
@@ -43,14 +43,25 @@ export class AIPlayerController extends Laya.Script {
             const delY = this.owner.y - this.ball.y;
             const distance = Math.sqrt(delX * delX + delY * delY);
             if (distance < this.minJumpDistance && this._canJump) {
-                console.warn("跳啊");
                 this._canJump = false;
                 const x = this._rig.linearVelocity.x;
+                const y = this._jumSpeed + this.getRandom(50, 250);
                 this._rig.setVelocity({ x: x, y: this._jumSpeed });
             }
         } else {
             this.shoe.rotation = 0;
+            this.offestX = this.getRandom(20, 50);
         }
     }
     //#endregion 生命周期
+
+    /**
+     * 获取指定范围内的随机数
+     * @param min 最小值（包含）
+     * @param max 最大值（不包含）
+     * @returns 返回min到max之间的随机数
+     */
+    private getRandom(min: number, max: number): number {
+        return Math.random() * (max - min) + min;
+    }
 }
