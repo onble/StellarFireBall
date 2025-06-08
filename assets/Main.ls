@@ -85,7 +85,10 @@
       "_$comp": [
         {
           "_$type": "2c1d05f7-aaa5-4a18-9259-354d9d23e03a",
-          "scriptPath": "../src/scripts/MyPlayerController.ts"
+          "scriptPath": "../src/scripts/MyPlayerController.ts",
+          "shoe": {
+            "_$ref": "awmxl0qp"
+          }
         },
         {
           "_$type": "RigidBody",
@@ -116,10 +119,12 @@
           "_$id": "awmxl0qp",
           "_$type": "Image",
           "name": "Shoe",
-          "x": 12,
-          "y": 95,
+          "x": 69,
+          "y": 129,
           "width": 114,
           "height": 68,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
           "skin": "res://024c9615-166e-49e4-8f00-1fd878cf0d49",
           "color": "#ffffff"
         }
@@ -151,6 +156,7 @@
       "_$id": "1d8gwug5",
       "_$type": "Sprite",
       "name": "LeftAirWall",
+      "x": 260,
       "width": 16,
       "height": 1080,
       "_$comp": [
