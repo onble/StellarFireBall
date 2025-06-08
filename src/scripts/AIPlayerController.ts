@@ -22,6 +22,7 @@ export class AIPlayerController extends Laya.Script {
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
+        Laya.stage.on("ResetAIPlayer", this, this._resetHandle);
     }
     public onUpdate(): void {
         if (this.owner.y > 765) {
@@ -54,6 +55,9 @@ export class AIPlayerController extends Laya.Script {
             this.offestX = this.getRandom(20, 50);
         }
     }
+    public onDestroy(): void {
+        Laya.stage.off("ResetAIPlayer", this, this._resetHandle);
+    }
     //#endregion 生命周期
 
     /**
@@ -64,5 +68,11 @@ export class AIPlayerController extends Laya.Script {
      */
     private getRandom(min: number, max: number): number {
         return Math.random() * (max - min) + min;
+    }
+
+    private _resetHandle(): void {
+        this.owner.x = 1260;
+        this.owner.y = 770;
+        this._rig.setVelocity({ x: 0, y: 0 });
     }
 }

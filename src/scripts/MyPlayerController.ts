@@ -13,12 +13,16 @@ export class MyPlayerController extends Laya.Script {
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
+        Laya.stage.on("ResetMyPlayer", this, this._resetHandle);
     }
     public onUpdate(): void {
         if (this.owner.y > 765) {
             this._canJump = true;
         }
         this._rotationShoe();
+    }
+    public onDestroy(): void {
+        Laya.stage.off("ResetMyPlayer", this, this._resetHandle);
     }
     //#endregion 生命周期
     /**
@@ -35,6 +39,11 @@ export class MyPlayerController extends Laya.Script {
             // 停止
             this.shoe.rotation = 0;
         }
+    }
+    private _resetHandle(): void {
+        this.owner.x = 660;
+        this.owner.y = 770;
+        this._rig.setVelocity({ x: 0, y: 0 });
     }
     //#region 事件监听
     public onKeyPress(evt: Laya.Event): void {

@@ -21,9 +21,11 @@ export class Ball extends Laya.Script {
             if (this.owner.x < 960) {
                 // left
                 this.reset(752);
+                Laya.stage.event("ResetMyPlayer");
             } else {
                 // right
                 this.reset(1170);
+                Laya.stage.event("ResetAIPlayer");
             }
         }
     }
