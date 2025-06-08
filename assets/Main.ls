@@ -311,7 +311,7 @@
         {
           "_$id": "vxec",
           "_$type": "CircleCollider",
-          "restitution": 0.8,
+          "restitution": 0.9,
           "density": 8,
           "radius": 41
         }

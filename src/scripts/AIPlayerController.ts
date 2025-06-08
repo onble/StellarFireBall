@@ -28,7 +28,8 @@ export class AIPlayerController extends Laya.Script {
             this._canJump = true;
         }
         if (this.ball.x > this.minX && this.ball.x < this.maxX) {
-            this.owner.x = this.ball.x + this.offestX;
+            const targetX = this.ball.x + this.offestX;
+            this.owner.x = Laya.MathUtil.lerp(this.owner.x, targetX, (Laya.timer.delta / 1000) * 5);
 
             // 鞋的旋转
             if (this.owner.x > this._lastX) {
