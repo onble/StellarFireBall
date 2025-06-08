@@ -93,6 +93,7 @@
         {
           "_$type": "RigidBody",
           "gravityScale": 3,
+          "allowSleep": false,
           "allowRotation": false
         },
         {
@@ -131,65 +132,121 @@
       ]
     },
     {
-      "_$id": "85ljrxwk",
+      "_$id": "dwultic0",
       "_$type": "Sprite",
-      "name": "GroundCollider",
-      "y": 815,
-      "width": 1920,
-      "height": 16,
-      "_$comp": [
-        {
-          "_$type": "RigidBody",
-          "type": "static"
-        },
-        {
-          "_$id": "7kyj",
-          "_$type": "BoxCollider",
-          "friction": 0.8,
-          "density": 100,
-          "width": 1920,
-          "height": 16
-        }
-      ]
-    },
-    {
-      "_$id": "1d8gwug5",
-      "_$type": "Sprite",
-      "name": "LeftAirWall",
-      "x": 260,
-      "width": 16,
-      "height": 1080,
-      "_$comp": [
-        {
-          "_$type": "RigidBody",
-          "type": "static"
-        },
-        {
-          "_$id": "rqdb",
-          "_$type": "BoxCollider",
-          "width": 16,
-          "height": 1080
-        }
-      ]
-    },
-    {
-      "_$id": "uwl9gcjy",
-      "_$type": "Sprite",
-      "name": "RightAirWall",
-      "x": 1920,
+      "name": "Border",
       "y": -56,
-      "width": 16,
-      "height": 1080,
-      "_$comp": [
+      "width": 1920,
+      "height": 1136,
+      "_$child": [
         {
-          "_$type": "RigidBody",
-          "type": "static"
+          "_$id": "85ljrxwk",
+          "_$type": "Sprite",
+          "name": "GroundCollider",
+          "y": 871,
+          "width": 1920,
+          "height": 16,
+          "_$comp": [
+            {
+              "_$type": "RigidBody",
+              "type": "static"
+            },
+            {
+              "_$id": "7kyj",
+              "_$type": "BoxCollider",
+              "friction": 0.8,
+              "density": 100,
+              "width": 1920,
+              "height": 16
+            }
+          ]
         },
         {
-          "_$id": "rqdb",
-          "_$type": "BoxCollider",
+          "_$id": "1d8gwug5",
+          "_$type": "Sprite",
+          "name": "LeftAirWall",
+          "x": 260,
+          "y": 56,
           "width": 16,
-          "height": 1080
+          "height": 1080,
+          "_$comp": [
+            {
+              "_$type": "RigidBody",
+              "type": "static"
+            },
+            {
+              "_$id": "rqdb",
+              "_$type": "BoxCollider",
+              "width": 16,
+              "height": 1080
+            }
+          ]
+        },
+        {
+          "_$id": "uwl9gcjy",
+          "_$type": "Sprite",
+          "name": "RightAirWall",
+          "x": 1740,
+          "width": 16,
+          "height": 1080,
+          "_$comp": [
+            {
+              "_$type": "RigidBody",
+              "type": "static"
+            },
+            {
+              "_$id": "rqdb",
+              "_$type": "BoxCollider",
+              "width": 16,
+              "height": 1080
+            }
+          ]
+        },
+        {
+          "_$id": "5cc0cl5e",
+          "_$type": "Sprite",
+          "name": "TopCollider",
+          "y": 56,
+          "width": 1920,
+          "height": 16,
+          "_$comp": [
+            {
+              "_$type": "RigidBody",
+              "type": "static"
+            },
+            {
+              "_$id": "7kyj",
+              "_$type": "BoxCollider",
+              "friction": 0.8,
+              "density": 100,
+              "width": 1920,
+              "height": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "7m04tfa7",
+      "_$type": "Image",
+      "name": "Ball",
+      "x": 826,
+      "y": 369,
+      "width": 82,
+      "height": 82,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "skin": "res://cdbce709-d547-4ab2-8360-8499dbee4265",
+      "color": "#ffffff",
+      "_$comp": [
+        {
+          "_$type": "RigidBody"
+        },
+        {
+          "_$id": "vxec",
+          "_$type": "CircleCollider",
+          "restitution": 0.8,
+          "radius": 41
         }
       ]
     }
