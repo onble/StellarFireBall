@@ -1,3 +1,5 @@
+import { GameManager } from "./GameManager";
+
 const { regClass, property } = Laya;
 
 @regClass()
@@ -70,7 +72,11 @@ export class AIPlayerController extends Laya.Script {
         return Math.random() * (max - min) + min;
     }
 
+    /**
+     * 重置AI玩家位置
+     */
     private _resetHandle(): void {
+        this.owner.parent.getComponent(GameManager).AddMyScore();
         this.owner.x = 1260;
         this.owner.y = 770;
         this._rig.setVelocity({ x: 0, y: 0 });

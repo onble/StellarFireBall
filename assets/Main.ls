@@ -9,6 +9,15 @@
   "name": "Scene2D",
   "width": 1920,
   "height": 1080,
+  "_$comp": [
+    {
+      "_$type": "19b4c531-a871-4be7-9eb5-a1fd8dfceb37",
+      "scriptPath": "../src/scripts/GameManager.ts",
+      "scorePanel": {
+        "_$ref": "tx5rn9d8"
+      }
+    }
+  ],
   "_$child": [
     {
       "_$id": "twcmqgl6",

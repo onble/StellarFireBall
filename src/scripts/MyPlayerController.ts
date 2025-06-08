@@ -1,3 +1,5 @@
+import { GameManager } from "./GameManager";
+
 const { regClass, property } = Laya;
 
 @regClass()
@@ -41,6 +43,7 @@ export class MyPlayerController extends Laya.Script {
         }
     }
     private _resetHandle(): void {
+        this.owner.parent.getComponent(GameManager).AddAIScore();
         this.owner.x = 660;
         this.owner.y = 770;
         this._rig.setVelocity({ x: 0, y: 0 });
