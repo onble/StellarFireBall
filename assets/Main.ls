@@ -73,6 +73,116 @@
       ]
     },
     {
+      "_$id": "tx5rn9d8",
+      "_$type": "Image",
+      "name": "ScorePanel",
+      "x": 968,
+      "y": 117,
+      "width": 612,
+      "height": 204,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "skin": "res://37d83897-40da-4ea3-a6dd-e0608961938b",
+      "color": "#ffffff",
+      "_$comp": [
+        {
+          "_$type": "17535e28-7d79-486a-b11e-05ff711d4894",
+          "scriptPath": "../src/scripts/ScorePanel.ts",
+          "txt_TimeCount": {
+            "_$ref": "j242v9ed"
+          },
+          "txt_MyScore": {
+            "_$ref": "2edf6cki"
+          },
+          "txt_AIScore": {
+            "_$ref": "soak4omh"
+          }
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "j242v9ed",
+          "_$type": "Text",
+          "name": "txt_TimeCount",
+          "x": 239,
+          "y": 64,
+          "width": 131,
+          "height": 114,
+          "text": "90",
+          "fontSize": 80,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "2edf6cki",
+          "_$type": "Text",
+          "name": "txt_MyScore",
+          "x": 27,
+          "y": 72,
+          "width": 153,
+          "height": 97,
+          "text": "0",
+          "fontSize": 60,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "soak4omh",
+          "_$type": "Text",
+          "name": "txt_AIScore",
+          "x": 425,
+          "y": 72,
+          "width": 153,
+          "height": 97,
+          "text": "0",
+          "fontSize": 60,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "3wco5bnt",
+          "_$type": "Text",
+          "name": "txt_PlayerName",
+          "x": 24,
+          "y": 4,
+          "width": 264,
+          "height": 52,
+          "text": "Player",
+          "fontSize": 30,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "5dacfzxi",
+          "_$type": "Text",
+          "name": "txt_AIName",
+          "x": 322,
+          "y": 6,
+          "width": 259,
+          "height": 47,
+          "text": "AI",
+          "fontSize": 30,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        }
+      ]
+    },
+    {
       "_$id": "r0ymlppq",
       "_$type": "Sprite",
       "name": "MyPlayer",
