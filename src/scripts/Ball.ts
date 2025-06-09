@@ -24,6 +24,7 @@ export class Ball extends Laya.Script {
         this.owner.y = 260;
         this._rig.setVelocity({ x: 0, y: 0 });
         this._rig.angularVelocity = 0;
+        this._rig.type = "kinematic";
     }
     //#region 事件监听
     public onTriggerEnter(
@@ -34,11 +35,37 @@ export class Ball extends Laya.Script {
         if (other.owner.name === "GroundCollider") {
             Laya.SoundManager.playSound("resources/sound/Ball-Hit-Ground.wav", 1);
             if (this.owner.x < 960) {
-                // left
+                // left 失分
+                Laya.SoundManager.playSound(
+                    "resources/sound/Goal/goal-received.wav",
+                    1,
+                    new Laya.Handler(this, () => {
+                        Laya.SoundManager.playSound(
+                            "resources/sound/startWistle.mp3",
+                            1,
+                            new Laya.Handler(this, () => {
+                                Laya.stage.event("StartGame");
+                            })
+                        );
+                    })
+                );
                 this.reset(752);
                 Laya.stage.event("ResetMyPlayer");
             } else {
-                // right
+                // right 得分
+                Laya.SoundManager.playSound(
+                    "resources/sound/Goal/goal-landed-01.mp3",
+                    1,
+                    new Laya.Handler(this, () => {
+                        Laya.SoundManager.playSound(
+                            "resources/sound/startWistle.mp3",
+                            1,
+                            new Laya.Handler(this, () => {
+                                Laya.stage.event("StartGame");
+                            })
+                        );
+                    })
+                );
                 this.reset(1170);
                 Laya.stage.event("ResetAIPlayer");
             }
