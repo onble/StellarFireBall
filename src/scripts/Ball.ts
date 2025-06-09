@@ -1,3 +1,5 @@
+import { GameManager } from "./GameManager";
+
 const { regClass, property } = Laya;
 
 @regClass()
@@ -32,6 +34,9 @@ export class Ball extends Laya.Script {
         self?: Laya.ColliderBase,
         contact?: any
     ): void {
+        if (this.owner.parent.getComponent(GameManager).gameOver) {
+            return;
+        }
         if (other.owner.name === "GroundCollider") {
             Laya.SoundManager.playSound("resources/sound/Ball-Hit-Ground.wav", 1);
             if (this.owner.x < 960) {

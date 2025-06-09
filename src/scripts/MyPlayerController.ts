@@ -12,9 +12,13 @@ export class MyPlayerController extends Laya.Script {
     private _rig: Laya.RigidBody;
     /** 控制连跳 */
     private _canJump: boolean = true;
+    /** 游戏控制器 */
+    private _gameManager: GameManager = null;
+
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
+        this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("ResetMyPlayer", this, this._resetHandle);
     }
     public onUpdate(): void {
@@ -43,13 +47,14 @@ export class MyPlayerController extends Laya.Script {
         }
     }
     private _resetHandle(): void {
-        this.owner.parent.getComponent(GameManager).AddAIScore();
+        this._gameManager.AddAIScore();
         this.owner.x = 660;
         this.owner.y = 770;
         this._rig.setVelocity({ x: 0, y: 0 });
     }
     //#region 事件监听
     public onKeyPress(evt: Laya.Event): void {
+        if (this._gameManager.gameOver) return;
         if (evt.key == "a" || evt.key == "A") {
             const y = this._rig.linearVelocity.y;
             this._rig.setVelocity({ x: -500, y: y });

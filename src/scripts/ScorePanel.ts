@@ -20,7 +20,7 @@ export class ScorePanel extends Laya.Script {
     public updateAIScore(score: number): void {
         this.txt_AIScore.text = `${score}`;
     }
-    public updateTimeHandle(time: number): void {
+    public updateTime(time: number): void {
         this.txt_TimeCount.text = `${time}`;
     }
     //#endregion 事件监听

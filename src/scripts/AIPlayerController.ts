@@ -20,13 +20,20 @@ export class AIPlayerController extends Laya.Script {
     /** 上一帧X的位置 */
     private _lastX: number = 0;
     private offestX: number = 0;
+    /** 游戏管理器 */
+    private _gameManager: GameManager = null;
 
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
+        this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("ResetAIPlayer", this, this._resetHandle);
     }
     public onUpdate(): void {
+        if (this._gameManager.gameOver) {
+            this.shoe.rotation = 0;
+            return;
+        }
         if (this.owner.y > 765) {
             this._canJump = true;
         }
@@ -76,7 +83,7 @@ export class AIPlayerController extends Laya.Script {
      * 重置AI玩家位置
      */
     private _resetHandle(): void {
-        this.owner.parent.getComponent(GameManager).AddMyScore();
+        this._gameManager.AddMyScore();
         this.owner.x = 1260;
         this.owner.y = 770;
         this._rig.setVelocity({ x: 0, y: 0 });

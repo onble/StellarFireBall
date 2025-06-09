@@ -17,6 +17,10 @@ export class GameManager extends Laya.Script {
     private _timer: number = 0;
     private _time: number = 3;
     private _isStartGame: boolean = false;
+    /** 比赛倒计时 */
+    private _countDownTime: number = 10;
+    /** 游戏是否结束 */
+    public gameOver: boolean = false;
 
     //#region 生命周期
     public onAwake(): void {
@@ -35,6 +39,17 @@ export class GameManager extends Laya.Script {
                     return;
                 }
                 this.txt_countDown.text = `${this._time}`;
+            }
+        } else if (this.gameOver === false) {
+            this._timer += Laya.timer.delta / 1000;
+            if (this._timer > 1) {
+                this._timer = 0;
+                this._countDownTime--;
+                this._scorePanelScript.updateTime(this._countDownTime);
+                if (this._countDownTime <= 0) {
+                    // 游戏结束
+                    this.gameOver = true;
+                }
             }
         }
     }
