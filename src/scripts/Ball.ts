@@ -32,6 +32,7 @@ export class Ball extends Laya.Script {
         contact?: any
     ): void {
         if (other.owner.name === "GroundCollider") {
+            Laya.SoundManager.playSound("resources/sound/Ball-Hit-Ground.wav", 1);
             if (this.owner.x < 960) {
                 // left
                 this.reset(752);
@@ -41,6 +42,17 @@ export class Ball extends Laya.Script {
                 this.reset(1170);
                 Laya.stage.event("ResetAIPlayer");
             }
+        }
+        switch (other.owner.name) {
+            case "MyPlayer":
+                Laya.SoundManager.playSound("resources/sound/BallHit-01.mp3", 1);
+                break;
+            case "AIPlayer":
+                Laya.SoundManager.playSound("resources/sound/BallHit-02.mp3", 1);
+                break;
+            case "middlePole":
+                Laya.SoundManager.playSound("resources/sound/ballHitsMiddlePole.mp3", 1);
+                break;
         }
     }
     //#endregion 事件监听

@@ -31,7 +31,7 @@ export class GameManager extends Laya.Script {
                 if (this._time <= 0) {
                     this._isStartGame = true;
                     this.txt_countDown.visible = false;
-                    Laya.stage.event("StartGame");
+                    this.startGame();
                     return;
                 }
                 this.txt_countDown.text = `${this._time}`;
@@ -39,6 +39,15 @@ export class GameManager extends Laya.Script {
         }
     }
     //#endregion 生命周期
+    public startGame(): void {
+        Laya.SoundManager.playSound(
+            "resources/sound/startWistle.mp3",
+            1,
+            new Laya.Handler(this, () => {
+                Laya.stage.event("StartGame");
+            })
+        );
+    }
     //#region 事件监听
     public AddMyScore(): void {
         this.myScore++;
