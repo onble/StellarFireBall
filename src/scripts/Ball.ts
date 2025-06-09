@@ -4,12 +4,26 @@ const { regClass, property } = Laya;
 export class Ball extends Laya.Script {
     declare owner: Laya.Sprite;
 
+    private _rig: Laya.RigidBody;
+
+    //#region 生命周期
+    public onAwake(): void {
+        this._rig = this.owner.getComponent(Laya.RigidBody);
+        Laya.stage.on("StartGame", this, this.startGame);
+    }
+    public onDestroy(): void {
+        Laya.stage.off("StartGame", this, this.startGame);
+    }
+    //#endregion 生命周期
+
+    public startGame(): void {
+        this._rig.type = "dynamic";
+    }
     reset(x: number): void {
         this.owner.x = x;
         this.owner.y = 260;
-        const rig = this.owner.getComponent(Laya.RigidBody);
-        rig.setVelocity({ x: 0, y: 0 });
-        rig.angularVelocity = 0;
+        this._rig.setVelocity({ x: 0, y: 0 });
+        this._rig.angularVelocity = 0;
     }
     //#region 事件监听
     public onTriggerEnter(

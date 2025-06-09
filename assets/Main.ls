@@ -15,6 +15,9 @@
       "scriptPath": "../src/scripts/GameManager.ts",
       "scorePanel": {
         "_$ref": "tx5rn9d8"
+      },
+      "txt_countDown": {
+        "_$ref": "wncizme1"
       }
     }
   ],
@@ -425,7 +428,8 @@
       "color": "#ffffff",
       "_$comp": [
         {
-          "_$type": "RigidBody"
+          "_$type": "RigidBody",
+          "type": "static"
         },
         {
           "_$id": "vxec",
@@ -439,6 +443,20 @@
           "scriptPath": "../src/scripts/Ball.ts"
         }
       ]
+    },
+    {
+      "_$id": "wncizme1",
+      "_$type": "Text",
+      "name": "txt_CountDown",
+      "width": 1920,
+      "height": 1200,
+      "text": "3",
+      "fontSize": 400,
+      "color": "rgba(0, 255, 61, 1)",
+      "bold": true,
+      "align": "center",
+      "valign": "middle",
+      "leading": 2
     }
   ]
 }
