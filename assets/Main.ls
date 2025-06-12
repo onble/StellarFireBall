@@ -9,6 +9,7 @@
   "name": "Scene2D",
   "width": 1920,
   "height": 1080,
+  "autoDestroyAtClosed": true,
   "_$comp": [
     {
       "_$type": "19b4c531-a871-4be7-9eb5-a1fd8dfceb37",
@@ -473,7 +474,7 @@
         {
           "_$id": "pnhucssr",
           "_$type": "Image",
-          "name": "GameOverPanel",
+          "name": "Bg",
           "width": 1920,
           "height": 1080,
           "alpha": 0.8,

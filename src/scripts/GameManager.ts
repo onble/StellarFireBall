@@ -30,9 +30,11 @@ export class GameManager extends Laya.Script {
     public onAwake(): void {
         this.gameOverPanel.getChildByName("btn_menu").on(Laya.Event.CLICK, this, () => {
             // 场景的跳转
+            Laya.Scene.open("Menu.ls");
         });
         this.gameOverPanel.getChildByName("btn_again").on(Laya.Event.CLICK, this, () => {
             // 重新加载当前场景
+            Laya.Scene.open("Main.ls");
         });
         this._scorePanelScript = this.scorePanel.getComponent(ScorePanel);
     }
