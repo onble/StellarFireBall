@@ -484,7 +484,7 @@
         {
           "_$id": "gun5pe5l",
           "_$type": "Text",
-          "name": "Txt_Title",
+          "name": "Txt_title",
           "x": 379,
           "y": 146,
           "width": 1162,
@@ -516,7 +516,7 @@
         {
           "_$id": "zqxflusd",
           "_$type": "Button",
-          "name": "btn_Menu",
+          "name": "btn_menu",
           "x": 800,
           "y": 800,
           "width": 221,
@@ -532,7 +532,7 @@
         {
           "_$id": "8tovgwam",
           "_$type": "Button",
-          "name": "btn_Again",
+          "name": "btn_again",
           "x": 1120,
           "y": 800,
           "width": 221,

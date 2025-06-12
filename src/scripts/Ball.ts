@@ -7,14 +7,22 @@ export class Ball extends Laya.Script {
     declare owner: Laya.Sprite;
 
     private _rig: Laya.RigidBody;
+    private _gameManager: GameManager = null;
 
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
+        this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("StartGame", this, this.startGame);
+        Laya.stage.on("GameOver", this, () => {
+            Laya.SoundManager.setSoundVolume(0, "resources/sound/Goal/goal-received.wav");
+            Laya.SoundManager.setSoundVolume(0, "resources/sound/startWistle.mp3");
+            Laya.SoundManager.setSoundVolume(0, "resources/sound/Goal/goal-landed-01.mp3");
+        });
     }
     public onDestroy(): void {
         Laya.stage.off("StartGame", this, this.startGame);
+        Laya.stage.off("GameOver", this);
     }
     //#endregion 生命周期
 
@@ -34,7 +42,7 @@ export class Ball extends Laya.Script {
         self?: Laya.ColliderBase,
         contact?: any
     ): void {
-        if (this.owner.parent.getComponent(GameManager).gameOver) {
+        if (this._gameManager.gameOver) {
             return;
         }
         if (other.owner.name === "GroundCollider") {
@@ -45,6 +53,7 @@ export class Ball extends Laya.Script {
                     "resources/sound/Goal/goal-received.wav",
                     1,
                     new Laya.Handler(this, () => {
+                        if (this._gameManager.gameOver) return;
                         Laya.SoundManager.playSound(
                             "resources/sound/startWistle.mp3",
                             1,
@@ -62,6 +71,7 @@ export class Ball extends Laya.Script {
                     "resources/sound/Goal/goal-landed-01.mp3",
                     1,
                     new Laya.Handler(this, () => {
+                        if (this._gameManager.gameOver) return;
                         Laya.SoundManager.playSound(
                             "resources/sound/startWistle.mp3",
                             1,

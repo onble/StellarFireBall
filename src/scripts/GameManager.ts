@@ -28,6 +28,12 @@ export class GameManager extends Laya.Script {
 
     //#region 生命周期
     public onAwake(): void {
+        this.gameOverPanel.getChildByName("btn_menu").on(Laya.Event.CLICK, this, () => {
+            // 场景的跳转
+        });
+        this.gameOverPanel.getChildByName("btn_again").on(Laya.Event.CLICK, this, () => {
+            // 重新加载当前场景
+        });
         this._scorePanelScript = this.scorePanel.getComponent(ScorePanel);
     }
     public onUpdate(): void {
@@ -53,10 +59,21 @@ export class GameManager extends Laya.Script {
                 if (this._countDownTime <= 0) {
                     // 游戏结束
                     this.gameOver = true;
-                    this.gameOverPanel.visible = true;
-                    Laya.stage.event("GameOver");
+                    this._gameOver();
                 }
             }
+        }
+    }
+    private _gameOver(): void {
+        this.gameOverPanel.visible = true;
+        Laya.stage.event("GameOver");
+        const txt_result = this.gameOverPanel.getChildByName("txt_result") as Laya.Text;
+        if (this.myScore > this.AIScore) {
+            txt_result.text = "胜利";
+        } else if (this.myScore < this.AIScore) {
+            txt_result.text = "失败";
+        } else {
+            txt_result.text = "平局";
         }
     }
     //#endregion 生命周期
