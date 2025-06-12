@@ -22,6 +22,12 @@
       },
       "gameOverPanel": {
         "_$ref": "w2lc1d60"
+      },
+      "pausePanel": {
+        "_$ref": "wte4nz1h"
+      },
+      "btn_pause": {
+        "_$ref": "fp1z73u0"
       }
     }
   ],
@@ -463,6 +469,22 @@
       "leading": 2
     },
     {
+      "_$id": "fp1z73u0",
+      "_$type": "Button",
+      "name": "btn_pause",
+      "x": 35,
+      "y": 28,
+      "width": 182,
+      "height": 182,
+      "_mouseState": 2,
+      "stateNum": 1,
+      "skin": "res://269fabd8-a321-4972-b3d7-56a248b6032a",
+      "label": "",
+      "labelSize": 20,
+      "labelAlign": "center",
+      "labelVAlign": "middle"
+    },
+    {
       "_$id": "w2lc1d60",
       "_$type": "Sprite",
       "name": "GameOverPanel",
@@ -542,6 +564,95 @@
           "_mouseState": 2,
           "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
           "label": "再玩一次",
+          "labelSize": 50,
+          "labelAlign": "center",
+          "labelVAlign": "middle"
+        }
+      ]
+    },
+    {
+      "_$id": "wte4nz1h",
+      "_$type": "Sprite",
+      "name": "PausePanel",
+      "width": 1920,
+      "height": 1080,
+      "visible": false,
+      "_mouseState": 2,
+      "_$child": [
+        {
+          "_$id": "6uo7ke37",
+          "_$type": "Image",
+          "name": "Bg",
+          "width": 1920,
+          "height": 1080,
+          "alpha": 0.8,
+          "skin": "res://8daa4e1f-cba7-4117-b0d3-eb5c7ad9eefa",
+          "sizeGrid": "13,11,12,11,0",
+          "color": "#ffffff"
+        },
+        {
+          "_$id": "dfkcmvp3",
+          "_$type": "Text",
+          "name": "Txt_title",
+          "x": 379,
+          "y": 146,
+          "width": 1162,
+          "height": 307,
+          "text": "PAUSE",
+          "fontSize": 200,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "jzwz29v1",
+          "_$type": "Button",
+          "name": "btn_menu",
+          "x": 800,
+          "y": 540,
+          "width": 221,
+          "height": 82,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "_mouseState": 2,
+          "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+          "label": "菜单",
+          "labelSize": 50,
+          "labelAlign": "center",
+          "labelVAlign": "middle"
+        },
+        {
+          "_$id": "n2j5zke1",
+          "_$type": "Button",
+          "name": "btn_resume",
+          "x": 1120,
+          "y": 540,
+          "width": 221,
+          "height": 82,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "_mouseState": 2,
+          "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+          "label": "继续",
+          "labelSize": 50,
+          "labelAlign": "center",
+          "labelVAlign": "middle"
+        },
+        {
+          "_$id": "mk0tn6yg",
+          "_$type": "Button",
+          "name": "btn_restart",
+          "x": 959,
+          "y": 921,
+          "width": 305,
+          "height": 134,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "_mouseState": 2,
+          "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+          "label": "重新开始",
           "labelSize": 50,
           "labelAlign": "center",
           "labelVAlign": "middle"
