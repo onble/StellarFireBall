@@ -8,8 +8,12 @@ export class GameManager extends Laya.Script {
 
     @property({ type: Laya.Node, tips: "计分面板" })
     public scorePanel: Laya.Node = null;
+
     @property({ type: Laya.Text, tips: "倒计时" })
     public txt_countDown: Laya.Text = null;
+
+    @property({ type: Laya.Sprite, tips: "游戏结束面板" })
+    private gameOverPanel: Laya.Sprite = null;
 
     private _scorePanelScript: ScorePanel = null;
     private myScore: number = 0;
@@ -49,6 +53,8 @@ export class GameManager extends Laya.Script {
                 if (this._countDownTime <= 0) {
                     // 游戏结束
                     this.gameOver = true;
+                    this.gameOverPanel.visible = true;
+                    Laya.stage.event("GameOver");
                 }
             }
         }

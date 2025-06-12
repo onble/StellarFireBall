@@ -18,6 +18,9 @@
       },
       "txt_countDown": {
         "_$ref": "wncizme1"
+      },
+      "gameOverPanel": {
+        "_$ref": "w2lc1d60"
       }
     }
   ],
@@ -457,6 +460,92 @@
       "align": "center",
       "valign": "middle",
       "leading": 2
+    },
+    {
+      "_$id": "w2lc1d60",
+      "_$type": "Sprite",
+      "name": "GameOverPanel",
+      "width": 1920,
+      "height": 1080,
+      "visible": false,
+      "_mouseState": 2,
+      "_$child": [
+        {
+          "_$id": "pnhucssr",
+          "_$type": "Image",
+          "name": "GameOverPanel",
+          "width": 1920,
+          "height": 1080,
+          "alpha": 0.8,
+          "skin": "res://8daa4e1f-cba7-4117-b0d3-eb5c7ad9eefa",
+          "sizeGrid": "13,11,12,11,0",
+          "color": "#ffffff"
+        },
+        {
+          "_$id": "gun5pe5l",
+          "_$type": "Text",
+          "name": "Txt_Title",
+          "x": 379,
+          "y": 146,
+          "width": 1162,
+          "height": 307,
+          "text": "GAME OVER",
+          "fontSize": 200,
+          "color": "#FFFFFF",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "ike7mclj",
+          "_$type": "Text",
+          "name": "txt_result",
+          "x": 379,
+          "y": 419,
+          "width": 1162,
+          "height": 307,
+          "text": "YOU WIN",
+          "fontSize": 200,
+          "color": "rgba(229, 49, 49, 1)",
+          "bold": true,
+          "align": "center",
+          "valign": "middle",
+          "leading": 2
+        },
+        {
+          "_$id": "zqxflusd",
+          "_$type": "Button",
+          "name": "btn_Menu",
+          "x": 800,
+          "y": 800,
+          "width": 221,
+          "height": 82,
+          "anchorX": 0.5,
+          "_mouseState": 2,
+          "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+          "label": "菜单",
+          "labelSize": 50,
+          "labelAlign": "center",
+          "labelVAlign": "middle"
+        },
+        {
+          "_$id": "8tovgwam",
+          "_$type": "Button",
+          "name": "btn_Again",
+          "x": 1120,
+          "y": 800,
+          "width": 221,
+          "height": 82,
+          "anchorX": 0.5,
+          "_mouseState": 2,
+          "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+          "label": "再玩一次",
+          "labelSize": 50,
+          "labelAlign": "center",
+          "labelVAlign": "middle"
+        }
+      ]
     }
   ]
 }
