@@ -250,7 +250,7 @@
         {
           "_$id": "nij8ahoq",
           "_$type": "Image",
-          "name": "Head",
+          "name": "head",
           "x": 62,
           "width": 124,
           "height": 124,
