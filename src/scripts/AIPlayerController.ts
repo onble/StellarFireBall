@@ -22,9 +22,16 @@ export class AIPlayerController extends Laya.Script {
     private offestX: number = 0;
     /** 游戏管理器 */
     private _gameManager: GameManager = null;
+    private _img_head: Laya.Image = null;
+    private _headIndex: number = 1;
 
     //#region 生命周期
     public onAwake(): void {
+        this._img_head = this.owner.getChildByName("head") as Laya.Image;
+        this._headIndex = Math.floor(this.getRandom(1, 5));
+        const skinUrl = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;
+        this._img_head.skin = skinUrl;
+
         this._rig = this.owner.getComponent(Laya.RigidBody);
         this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("ResetAIPlayer", this, this._resetHandle);
@@ -88,4 +95,24 @@ export class AIPlayerController extends Laya.Script {
         this.owner.y = 770;
         this._rig.setVelocity({ x: 0, y: 0 });
     }
+
+    //#region 事件监听
+
+    onTriggerEnter(
+        other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
+        self?: Laya.ColliderBase,
+        contact?: any
+    ): void {
+        if (other.owner.name === "Ball") {
+            Laya.timer.clearAll(this);
+            const skinUrl = `resources/Textures/Players/Player-Head-0${this._headIndex}-c.png`;
+            this._img_head.skin = skinUrl;
+            Laya.timer.once(1000, this, () => {
+                const skinUrl = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;
+                this._img_head.skin = skinUrl;
+            });
+        }
+    }
+
+    //#endregion 事件监听
 }

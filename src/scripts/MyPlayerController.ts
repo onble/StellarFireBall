@@ -25,13 +25,14 @@ export class MyPlayerController extends Laya.Script {
     private _gameManager: GameManager = null;
     private _canLeft: boolean = false;
     private _canRight: boolean = false;
+    private _img_head: Laya.Image = null;
 
     //#region 生命周期
     public onAwake(): void {
         const headIndex = Laya.LocalStorage.getItem("HeadIndex");
         const skinUrl = `resources/Textures/Players/Player-Head-0${headIndex}-n.png`;
-        const head = this.owner.getChildByName("head") as Laya.Image;
-        head.skin = skinUrl;
+        this._img_head = this.owner.getChildByName("head") as Laya.Image;
+        this._img_head.skin = skinUrl;
         this._rig = this.owner.getComponent(Laya.RigidBody);
         this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("ResetMyPlayer", this, this._resetHandle);
@@ -120,6 +121,23 @@ export class MyPlayerController extends Laya.Script {
         this._canJump = false;
         const x = this._rig.linearVelocity.x;
         this._rig.setVelocity({ x: x, y: -550 });
+    }
+
+    onTriggerEnter(
+        other: Laya.PhysicsColliderComponent | Laya.ColliderBase,
+        self?: Laya.ColliderBase,
+        contact?: any
+    ): void {
+        if (other.owner.name === "Ball") {
+            Laya.timer.clearAll(this);
+            const headIndex = Laya.LocalStorage.getItem("HeadIndex");
+            const skinUrl = `resources/Textures/Players/Player-Head-0${headIndex}-c.png`;
+            this._img_head.skin = skinUrl;
+            Laya.timer.once(1000, this, () => {
+                const skinUrl = `resources/Textures/Players/Player-Head-0${headIndex}-n.png`;
+                this._img_head.skin = skinUrl;
+            });
+        }
     }
     //#endregion 事件监听
 }
