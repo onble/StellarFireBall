@@ -16,6 +16,18 @@
       "scriptPath": "../src/scripts/MenuScene.ts",
       "btn_start": {
         "_$ref": "h9ak3072"
+      },
+      "btn_left": {
+        "_$ref": "6mtv9acg"
+      },
+      "btn_right": {
+        "_$ref": "6zp2tzj4"
+      },
+      "btn_select": {
+        "_$ref": "2du5xiqa"
+      },
+      "img_head": {
+        "_$ref": "nos2djys"
       }
     }
   ],
@@ -44,6 +56,66 @@
       "labelSize": 20,
       "labelAlign": "center",
       "labelVAlign": "middle"
+    },
+    {
+      "_$id": "6mtv9acg",
+      "_$type": "Button",
+      "name": "btn_left",
+      "x": 197,
+      "y": 450,
+      "width": 182,
+      "height": 182,
+      "_mouseState": 2,
+      "stateNum": 1,
+      "skin": "res://263ee96d-f2aa-4d84-847f-e5d93692a462",
+      "label": "",
+      "labelSize": 20,
+      "labelAlign": "center",
+      "labelVAlign": "middle"
+    },
+    {
+      "_$id": "2du5xiqa",
+      "_$type": "Button",
+      "name": "btn_select",
+      "x": 529,
+      "y": 825,
+      "width": 294,
+      "height": 117,
+      "_mouseState": 2,
+      "stateNum": 1,
+      "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+      "label": "选择此头像",
+      "labelSize": 45,
+      "labelAlign": "center",
+      "labelVAlign": "middle"
+    },
+    {
+      "_$id": "6zp2tzj4",
+      "_$type": "Button",
+      "name": "btn_right",
+      "x": 924,
+      "y": 450,
+      "width": 182,
+      "height": 182,
+      "_mouseState": 2,
+      "stateNum": 1,
+      "skin": "res://38575a75-fbc3-45f2-bbe0-6456ed978929",
+      "label": "",
+      "labelSize": 20,
+      "labelAlign": "center",
+      "labelVAlign": "middle"
+    },
+    {
+      "_$id": "nos2djys",
+      "_$type": "Image",
+      "name": "img_head",
+      "x": 397,
+      "y": 252,
+      "width": 512,
+      "height": 512,
+      "skin": "res://bcd7364e-6387-4aca-b0c8-2541dac0f092",
+      "useSourceSize": true,
+      "color": "#ffffff"
     }
   ]
 }
