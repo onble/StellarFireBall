@@ -74,7 +74,7 @@
       "_$id": "6zp2tzj4",
       "_$type": "Button",
       "name": "btn_right",
-      "x": 924,
+      "x": 950,
       "y": 450,
       "width": 182,
       "height": 182,

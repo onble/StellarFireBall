@@ -27,7 +27,9 @@ export class Ball extends Laya.Script {
     //#endregion 生命周期
 
     public startGame(): void {
-        this._rig.type = "dynamic";
+        if (this._gameManager.isStartGame) {
+            this._rig.type = "dynamic";
+        }
     }
     reset(x: number): void {
         this.owner.x = x;

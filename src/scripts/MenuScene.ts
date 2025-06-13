@@ -25,10 +25,12 @@ export class MenuScene extends Laya.Script {
         this._headIndex = Number(Laya.LocalStorage.getItem("HeadIndex") || 1);
         this.img_head.skin = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;
         this.btn_start.on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             Laya.LocalStorage.setItem("HeadIndex", `${this._headIndex}`);
             Laya.Scene.open("Main.ls");
         });
         this.btn_left.on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             this._headIndex--;
             if (this._headIndex < 1) {
                 this._headIndex = HEAD_MAX_INDEX;
@@ -36,6 +38,7 @@ export class MenuScene extends Laya.Script {
             this.img_head.skin = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;
         });
         this.btn_right.on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             this._headIndex++;
             if (this._headIndex > HEAD_MAX_INDEX) {
                 this._headIndex = 1;

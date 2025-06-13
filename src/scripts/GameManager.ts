@@ -26,7 +26,7 @@ export class GameManager extends Laya.Script {
     private AIScore: number = 0;
     private _timer: number = 0;
     private _time: number = 3;
-    private _isStartGame: boolean = false;
+    public isStartGame: boolean = false;
     /** 比赛倒计时 */
     private _countDownTime: number = 90;
     /** 游戏是否结束 */
@@ -34,6 +34,7 @@ export class GameManager extends Laya.Script {
 
     //#region 生命周期
     public onAwake(): void {
+        Laya.SoundManager.playMusic("resources/sound/Crowd/crowd-01.mp3", 0);
         // 游戏结束界面两个按钮的点击事件的监听
         this.gameOverPanel.getChildByName("btn_menu").on(Laya.Event.CLICK, this, () => {
             // 场景的跳转
@@ -44,30 +45,36 @@ export class GameManager extends Laya.Script {
             Laya.Scene.open("Main.ls");
         });
         this.btn_pause.on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             this.pausePanel.visible = true;
             Laya.timer.scale = 0;
         });
         // 暂停界面三个按钮的点击事件监听
         this.pausePanel.getChildByName("btn_menu").on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             Laya.Scene.open("Menu.ls");
+            Laya.timer.scale = 1;
         });
         this.pausePanel.getChildByName("btn_resume").on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             this.pausePanel.visible = false;
             Laya.timer.scale = 1;
         });
         this.pausePanel.getChildByName("btn_restart").on(Laya.Event.CLICK, this, () => {
+            Laya.SoundManager.playSound("resources/sound/MenuTap.mp3", 1);
             Laya.Scene.open("Main.ls");
+            Laya.timer.scale = 1;
         });
         this._scorePanelScript = this.scorePanel.getComponent(ScorePanel);
     }
     public onUpdate(): void {
-        if (this._isStartGame === false) {
+        if (this.isStartGame === false) {
             this._timer += Laya.timer.delta / 1000;
             if (this._timer >= 1) {
                 this._timer = 0;
                 this._time--;
                 if (this._time <= 0) {
-                    this._isStartGame = true;
+                    this.isStartGame = true;
                     this.txt_countDown.visible = false;
                     this.startGame();
                     return;
