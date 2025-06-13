@@ -220,6 +220,15 @@
           "scriptPath": "../src/scripts/MyPlayerController.ts",
           "shoe": {
             "_$ref": "awmxl0qp"
+          },
+          "btn_left": {
+            "_$ref": "v1xllx3f"
+          },
+          "btn_right": {
+            "_$ref": "ikxar72p"
+          },
+          "btn_jump": {
+            "_$ref": "zu18zyr1"
           }
         },
         {
