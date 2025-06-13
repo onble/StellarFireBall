@@ -28,6 +28,10 @@ export class MyPlayerController extends Laya.Script {
 
     //#region 生命周期
     public onAwake(): void {
+        const headIndex = Laya.LocalStorage.getItem("headIndex");
+        const skinUrl = `resources/Textures/Players/Player-Head-0${headIndex}-n.png`;
+        const head = this.owner.getChildByName("head") as Laya.Image;
+        head.skin = skinUrl;
         this._rig = this.owner.getComponent(Laya.RigidBody);
         this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("ResetMyPlayer", this, this._resetHandle);

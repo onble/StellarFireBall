@@ -11,8 +11,6 @@ export class MenuScene extends Laya.Script {
     public btn_left: Laya.Sprite = null;
     @property({ type: Laya.Sprite, tips: "向右切换按钮" })
     public btn_right: Laya.Sprite = null;
-    @property({ type: Laya.Sprite, tips: "选择按钮" })
-    public btn_select: Laya.Sprite = null;
     @property({ type: Laya.Image, tips: "头像节点" })
     public img_head: Laya.Image = null;
 
@@ -23,7 +21,11 @@ export class MenuScene extends Laya.Script {
     private _headIndex: number = 1;
 
     onAwake(): void {
+        // 先获取一下本地存放的HeadIndx的值
+        this._headIndex = Number(Laya.LocalStorage.getItem("HeadIndex") || 1);
+        this.img_head.skin = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;
         this.btn_start.on(Laya.Event.CLICK, this, () => {
+            Laya.LocalStorage.setItem("HeadIndex", `${this._headIndex}`);
             Laya.Scene.open("Main.ls");
         });
         this.btn_left.on(Laya.Event.CLICK, this, () => {
@@ -39,9 +41,6 @@ export class MenuScene extends Laya.Script {
                 this._headIndex = 1;
             }
             this.img_head.skin = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;
-        });
-        this.btn_select.on(Laya.Event.CLICK, this, () => {
-            Laya.Scene.open("Main.ls");
         });
     }
 }

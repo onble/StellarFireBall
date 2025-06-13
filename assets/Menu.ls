@@ -23,9 +23,6 @@
       "btn_right": {
         "_$ref": "6zp2tzj4"
       },
-      "btn_select": {
-        "_$ref": "2du5xiqa"
-      },
       "img_head": {
         "_$ref": "nos2djys"
       }
@@ -70,22 +67,6 @@
       "skin": "res://263ee96d-f2aa-4d84-847f-e5d93692a462",
       "label": "",
       "labelSize": 20,
-      "labelAlign": "center",
-      "labelVAlign": "middle"
-    },
-    {
-      "_$id": "2du5xiqa",
-      "_$type": "Button",
-      "name": "btn_select",
-      "x": 529,
-      "y": 825,
-      "width": 294,
-      "height": 117,
-      "_mouseState": 2,
-      "stateNum": 1,
-      "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
-      "label": "选择此头像",
-      "labelSize": 45,
       "labelAlign": "center",
       "labelVAlign": "middle"
     },
