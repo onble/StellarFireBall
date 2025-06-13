@@ -9,21 +9,57 @@ export class MyPlayerController extends Laya.Script {
     @property({ type: Laya.Sprite, tips: "鞋子" })
     private shoe: Laya.Sprite = null;
 
+    @property({ type: Laya.Sprite, tips: "左移按钮" })
+    private btn_left: Laya.Sprite = null;
+
+    @property({ type: Laya.Sprite, tips: "右移按钮" })
+    private btn_right: Laya.Sprite = null;
+
+    @property({ type: Laya.Sprite, tips: "跳跃按钮" })
+    private btn_jump: Laya.Sprite = null;
+
     private _rig: Laya.RigidBody;
     /** 控制连跳 */
     private _canJump: boolean = true;
     /** 游戏控制器 */
     private _gameManager: GameManager = null;
+    private _canLeft: boolean = false;
+    private _canRight: boolean = false;
 
     //#region 生命周期
     public onAwake(): void {
         this._rig = this.owner.getComponent(Laya.RigidBody);
         this._gameManager = this.owner.parent.getComponent(GameManager);
         Laya.stage.on("ResetMyPlayer", this, this._resetHandle);
+        this.btn_left.on(Laya.Event.MOUSE_OVER, this, () => {
+            this._canLeft = true;
+        });
+        this.btn_left.on(Laya.Event.MOUSE_UP, this, () => {
+            this._canLeft = false;
+        });
+        this.btn_left.on(Laya.Event.MOUSE_OUT, this, () => {
+            this._canLeft = false;
+        });
+        this.btn_right.on(Laya.Event.MOUSE_OVER, this, () => {
+            this._canRight = true;
+        });
+        this.btn_right.on(Laya.Event.MOUSE_UP, this, () => {
+            this._canRight = false;
+        });
+        this.btn_right.on(Laya.Event.MOUSE_OUT, this, () => {
+            this._canRight = false;
+        });
+        this.btn_jump.on(Laya.Event.CLICK, this, this._jump);
     }
     public onUpdate(): void {
         if (this.owner.y > 765) {
             this._canJump = true;
+        }
+        if (this._canLeft) {
+            this._moveLeft();
+        }
+        if (this._canRight) {
+            this._moveRight();
         }
         this._rotationShoe();
     }
@@ -56,18 +92,30 @@ export class MyPlayerController extends Laya.Script {
     public onKeyPress(evt: Laya.Event): void {
         if (this._gameManager.gameOver) return;
         if (evt.key == "a" || evt.key == "A") {
-            const y = this._rig.linearVelocity.y;
-            this._rig.setVelocity({ x: -500, y: y });
+            this._moveLeft();
         }
         if (evt.key == "d" || evt.key == "D") {
-            const y = this._rig.linearVelocity.y;
-            this._rig.setVelocity({ x: 500, y: y });
+            this._moveRight();
         }
-        if (evt.key == " " && this._canJump) {
-            this._canJump = false;
-            const x = this._rig.linearVelocity.x;
-            this._rig.setVelocity({ x: x, y: -550 });
+        if (evt.key == " ") {
+            this._jump();
         }
+    }
+    private _moveLeft(): void {
+        const y = this._rig.linearVelocity.y;
+        this._rig.setVelocity({ x: -500, y: y });
+    }
+    private _moveRight(): void {
+        const y = this._rig.linearVelocity.y;
+        this._rig.setVelocity({ x: 500, y: y });
+    }
+    private _jump(): void {
+        if (this._canJump === false) {
+            return;
+        }
+        this._canJump = false;
+        const x = this._rig.linearVelocity.x;
+        this._rig.setVelocity({ x: x, y: -550 });
     }
     //#endregion 事件监听
 }

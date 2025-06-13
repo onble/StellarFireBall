@@ -28,7 +28,7 @@ export class GameManager extends Laya.Script {
     private _time: number = 3;
     private _isStartGame: boolean = false;
     /** 比赛倒计时 */
-    private _countDownTime: number = 10;
+    private _countDownTime: number = 90;
     /** 游戏是否结束 */
     public gameOver: boolean = false;
 

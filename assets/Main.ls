@@ -476,6 +476,7 @@
       "y": 28,
       "width": 182,
       "height": 182,
+      "visible": false,
       "_mouseState": 2,
       "stateNum": 1,
       "skin": "res://269fabd8-a321-4972-b3d7-56a248b6032a",
@@ -658,6 +659,39 @@
           "labelVAlign": "middle"
         }
       ]
+    },
+    {
+      "_$id": "v1xllx3f",
+      "_$type": "Image",
+      "name": "btn_left",
+      "x": 236,
+      "y": 902,
+      "width": 153,
+      "height": 153,
+      "skin": "res://61356888-f1af-4bca-b201-9a364eb95021",
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "ikxar72p",
+      "_$type": "Image",
+      "name": "btn_right",
+      "x": 577,
+      "y": 902,
+      "width": 153,
+      "height": 153,
+      "skin": "res://e8468aef-6475-463a-8513-cf74b8ea83e9",
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "zu18zyr1",
+      "_$type": "Image",
+      "name": "btn_jump",
+      "x": 1400,
+      "y": 902,
+      "width": 153,
+      "height": 153,
+      "skin": "res://c0460b47-743c-4be7-b84a-22cf981f4345",
+      "color": "#ffffff"
     }
   ]
 }
