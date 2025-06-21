@@ -136,7 +136,7 @@ export class MyPlayerController extends Laya.Script {
             Laya.timer.once(1000, this, () => {
                 const skinUrl = `resources/Textures/Players/Player-Head-0${headIndex}-n.png`;
                 this._img_head.skin = skinUrl;
-            }); //test
+            });
         }
     }
     //#endregion 事件监听
