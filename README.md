@@ -98,3 +98,7 @@ AI 控制器负责控制 AI 对手的行为。
 ## 开发者
 
 onble
+
+## 参考资料
+
+[Laya - 头顶足球](https://www.bilibili.com/video/BV1Nw411k7m3/)
