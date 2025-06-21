@@ -1,4 +1,25 @@
 {
-  "name": "LayaProject1",
-  "startupScene": "res://9b931ecf-fde9-44dd-acf3-15f8dc807965"
+  "name": "StellarFireBall",
+  "minifyJS": true,
+  "startupScene": "res://3dda5bb8-45ce-4ce3-8959-8139fd22483e",
+  "includedScenes": [
+    "res://3dda5bb8-45ce-4ce3-8959-8139fd22483e",
+    "res://9b931ecf-fde9-44dd-acf3-15f8dc807965"
+  ],
+  "alwaysIncluded": [
+    "atlas"
+  ],
+  "enableVersion": true,
+  "android": {
+    "targetArchitectures": {
+      "ARMv7": true,
+      "ARM64": false,
+      "x86": false,
+      "x86-64": false
+    },
+    "exportFormat": "APK"
+  },
+  "wxgame": {
+    "appid": "wxf96f5717bf42f6fd"
+  }
 }
