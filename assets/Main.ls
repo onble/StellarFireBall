@@ -28,6 +28,9 @@
       },
       "btn_pause": {
         "_$ref": "fp1z73u0"
+      },
+      "countDown": {
+        "_$ref": "lo5nnnzg"
       }
     }
   ],
@@ -497,18 +500,16 @@
       ]
     },
     {
-      "_$id": "wncizme1",
-      "_$type": "Text",
-      "name": "txt_CountDown",
-      "width": 1920,
-      "height": 1200,
-      "text": "3",
-      "fontSize": 400,
-      "color": "rgba(0, 255, 61, 1)",
-      "bold": true,
-      "align": "center",
-      "valign": "middle",
-      "leading": 2
+      "_$id": "lo5nnnzg",
+      "_$type": "Image",
+      "name": "countDown",
+      "x": 860,
+      "y": 440,
+      "width": 200,
+      "height": 270,
+      "skin": "res://35e61af4-cf7d-4c0c-8c55-43183d2b9240",
+      "useSourceSize": true,
+      "color": "#ffffff"
     },
     {
       "_$id": "fp1z73u0",

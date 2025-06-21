@@ -9,9 +9,6 @@ export class GameManager extends Laya.Script {
     @property({ type: Laya.Node, tips: "计分面板" })
     public scorePanel: Laya.Node = null;
 
-    @property({ type: Laya.Text, tips: "倒计时" })
-    public txt_countDown: Laya.Text = null;
-
     @property({ type: Laya.Sprite, tips: "游戏结束面板" })
     private gameOverPanel: Laya.Sprite = null;
 
@@ -20,6 +17,9 @@ export class GameManager extends Laya.Script {
 
     @property({ type: Laya.Sprite, tips: "游戏暂停按钮" })
     private btn_pause: Laya.Sprite = null;
+
+    @property({ type: Laya.Image, tips: "倒计时" })
+    private countDown: Laya.Image = null;
 
     private _scorePanelScript: ScorePanel = null;
     private myScore: number = 0;
@@ -75,11 +75,12 @@ export class GameManager extends Laya.Script {
                 this._time--;
                 if (this._time <= 0) {
                     this.isStartGame = true;
-                    this.txt_countDown.visible = false;
+                    this.countDown.visible = false;
                     this.startGame();
                     return;
                 }
-                this.txt_countDown.text = `${this._time}`;
+                this.countDown.skin = `resources/Textures/Buttons/count-${this._time}.png`;
+                this.countDown.visible = true;
             }
         } else if (this.gameOver === false) {
             this._timer += Laya.timer.delta / 1000;
