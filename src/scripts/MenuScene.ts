@@ -22,8 +22,8 @@ export class MenuScene extends Laya.Script {
 
     onAwake(): void {
         // 设置屏幕的中心适配
-        Laya.stage.pivot(960, 0);
-        Laya.stage.x = Laya.stage.width / 2;
+        // Laya.stage.pivot(960, 0);
+        // Laya.stage.x = Laya.stage.width / 2;
         // 先获取一下本地存放的HeadIndx的值
         this._headIndex = Number(Laya.LocalStorage.getItem("HeadIndex") || 1);
         this.img_head.skin = `resources/Textures/Players/Player-Head-0${this._headIndex}-n.png`;

@@ -17,9 +17,6 @@
       "scorePanel": {
         "_$ref": "tx5rn9d8"
       },
-      "txt_countDown": {
-        "_$ref": "wncizme1"
-      },
       "gameOverPanel": {
         "_$ref": "w2lc1d60"
       },
@@ -31,6 +28,15 @@
       },
       "countDown": {
         "_$ref": "lo5nnnzg"
+      },
+      "skyBackground": {
+        "_$ref": "twcmqgl6"
+      },
+      "stadiumBackground": {
+        "_$ref": "jagnu2oz"
+      },
+      "fieldBackground": {
+        "_$ref": "q9qpx3t0"
       }
     }
   ],
@@ -369,7 +375,7 @@
           "anchorX": 0.5,
           "anchorY": 0.5,
           "scaleX": -1,
-          "skin": "res://024c9615-166e-49e4-8f00-1fd878cf0d49",
+          "skin": "res://a383edd9-93a6-4e19-9445-e9c331ec5c95",
           "color": "#ffffff"
         }
       ]

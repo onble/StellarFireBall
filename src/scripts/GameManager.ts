@@ -21,6 +21,15 @@ export class GameManager extends Laya.Script {
     @property({ type: Laya.Image, tips: "倒计时" })
     private countDown: Laya.Image = null;
 
+    @property({ type: Laya.Image, tips: "天空背景" })
+    private skyBackground: Laya.Image = null;
+
+    @property({ type: Laya.Image, tips: "体育场背景" })
+    private stadiumBackground: Laya.Image = null;
+
+    @property({ type: Laya.Image, tips: "场地" })
+    private fieldBackground: Laya.Image = null;
+
     private _scorePanelScript: ScorePanel = null;
     private myScore: number = 0;
     private AIScore: number = 0;
@@ -35,6 +44,20 @@ export class GameManager extends Laya.Script {
     //#region 生命周期
     public onAwake(): void {
         Laya.SoundManager.playMusic("resources/sound/Crowd/crowd-01.mp3", 0);
+        // 白天黑夜随机
+        const randomTime = Math.floor(this.getRandom(1, 3));
+        switch (randomTime) {
+            case 1:
+                this.skyBackground.skin = "resources/Textures/Background/sky_day.jpg";
+                this.stadiumBackground.skin = "resources/Textures/Background/stadium-02.png";
+                break;
+            case 2:
+                this.skyBackground.skin = "resources/Textures/Background/sky_night.jpg";
+                this.stadiumBackground.skin = "resources/Textures/Background/stadium-01.png";
+                break;
+        }
+        const randomField = Math.floor(this.getRandom(1, 4));
+        this.fieldBackground.skin = `resources/Textures/Background/field-0${randomField}.png`;
         // 游戏结束界面两个按钮的点击事件的监听
         this.gameOverPanel.getChildByName("btn_menu").on(Laya.Event.CLICK, this, () => {
             // 场景的跳转
@@ -129,4 +152,13 @@ export class GameManager extends Laya.Script {
         this._scorePanelScript.updateAIScore(this.AIScore);
     }
     //#endregion 事件监听
+    /**
+     * 获取指定范围内的随机数
+     * @param min 最小值（包含）
+     * @param max 最大值（不包含）
+     * @returns 返回min到max之间的随机数
+     */
+    private getRandom(min: number, max: number): number {
+        return Math.random() * (max - min) + min;
+    }
 }
